@@ -1,0 +1,155 @@
+// Importing other SCSS files into this file
+@import "./reset";
+@import "./mediaQueries";
+@import "./mixins";
+@import "./variables";
+
+body {
+  display: grid;
+  place-items: center;
+
+  font-family: $ff-Poppins;
+  font-size: 15px;
+  background-color: $very-light-gray;
+}
+
+/* This section contains features */
+.features {
+  margin: 5.5rem 1.75rem 5rem;
+
+  /* This is the title for the feature section */
+  &__title {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: $fw-600;
+    color: $very-dark-blue;
+
+    @include md(lg) {
+      font-size: 2.25rem;
+    }
+
+    span {
+      display: block;
+      font-weight: $fw-200;
+    }
+  }
+
+  /* This is the description for the feature section */
+  &__description {
+    text-align: center;
+    margin-bottom: 4.5rem;
+    font-weight: $fw-400;
+    color: $grayish-blue;
+    line-height: 1.75;
+  }
+
+  @include md(lg) {
+    &__title,
+    &__description {
+      width: 55%;
+      margin-inline: auto;
+    }
+  }
+
+  /* This is the block that contains the feature cards */
+  &__cards {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1.5rem;
+    place-items: center;
+
+    @include md(lg) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-areas:
+        "supervisor team-builder calculator"
+        "supervisor karma calculator";
+      align-items: center;
+    }
+  }
+
+  /* These are the individual feature cards */
+  .feature-card {
+    @include flex(stretch, space-between);
+    flex-direction: column;
+    width: 310px;
+    padding: 1.5rem;
+    background-color: white;
+    box-shadow: 0 1rem 1.5rem hsla(234, 12%, 34%, 0.15),
+      0 0.625rem 0.625rem hsla(234, 12%, 34%, 0.12);
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 0.875rem 1.75rem hsla(234, 12%, 34%, 0.25),
+        0 0.625rem 0.625rem hsla(234, 12%, 34%, 0.22);
+    }
+
+    &__supervisor {
+      @include md(lg) {
+        grid-area: supervisor;
+      }
+    }
+
+    /* Adds a cyan border to the top of the feature card */
+    &--border-top-cyan {
+      border-top: 5px solid $cyan;
+    }
+
+    &__team-builder {
+      @include md(lg) {
+        grid-area: team-builder;
+      }
+    }
+
+    /* Adds a red border to the top of the feature card */
+    &--border-top-red {
+      border-top: 5px solid $red;
+    }
+
+    &__karma {
+      @include md(lg) {
+        grid-area: karma;
+      }
+    }
+
+    /* Adds an orange border to the top of the feature card */
+    &--border-top-orange {
+      border-top: 5px solid $orange;
+    }
+
+    &__calculator {
+      @include md(lg) {
+        grid-area: calculator;
+      }
+    }
+
+    /* Adds a blue border to the top of the feature card */
+    &--border-top-blue {
+      border-top: 5px solid $blue;
+    }
+
+    /* This is the title for the feature card */
+    &__title {
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: $fw-600;
+      color: $very-dark-blue;
+    }
+
+    /* This is the description for the feature card */
+    &__description {
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+      font-weight: $fw-400;
+      color: $grayish-blue;
+      line-height: 1.75;
+    }
+
+    /* This is the image for the feature card */
+    &__image {
+      align-self: flex-end;
+    }
+  }
+}
